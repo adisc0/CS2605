@@ -1,0 +1,27 @@
+public class Student extends Person {
+
+    private String course;
+
+    public Student(String name, int age, String c)throws IllegalObjectCreationException {
+        super(name, age);
+        setCourse(c);
+
+    }
+
+    //SETTER
+    public void setCourse(String c) {
+            course = c;
+    }
+
+
+//GETTERS
+
+    public String getCourse() {
+        return course;
+    }
+
+    public String getDetails () {
+        return super.getDetails() + "\nCourse: " + getCourse();
+    }
+
+}
