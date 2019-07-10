@@ -1,0 +1,54 @@
+class IllegalObjectCreationException extends Exception {}
+
+
+public class Person {
+
+    private String name;
+    private int age;
+
+
+    public Person(String n, int a) throws IllegalObjectCreationException {
+
+        setName(n);
+        setAge(a);
+
+    }
+
+
+    public void setName(String n) {
+
+        name = n;
+
+    }
+
+    public void setAge(int a) throws IllegalObjectCreationException {
+
+            if (age < 0) {
+
+                throw new IllegalObjectCreationException();
+
+            } else
+
+            age = a;
+
+
+    }
+
+    public String getName()  {
+
+        return name;
+
+    }
+
+    public int getAge() {
+
+        return this.age;
+
+    }
+
+    public String getDetails() {
+
+        return "Name: " + getName() + "\n" + "Age: " + getAge();
+
+    }
+}
