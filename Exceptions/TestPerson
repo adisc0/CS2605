@@ -1,0 +1,52 @@
+//REAL G
+public class TestPerson {
+    public static void main(String[] args) throws IllegalObjectCreationException {
+        int countObj;
+        int countPer = 0;
+        int countStu = 0;
+
+        for (int i = 0; i < args.length; i++) {
+            String[] strArgs = args[i].split(",");
+
+            try{
+            if (strArgs.length == 2) {
+
+                    Person p1 = new Person(strArgs[0], Integer.parseInt(strArgs[1]));
+                    System.out.println(p1.getDetails());
+                    countPer++;
+
+
+                System.out.println();
+
+            } else if (strArgs.length == 3) {
+
+
+                Student s1 = new Student(strArgs[0], Integer.parseInt(strArgs[1]), strArgs[2]);
+                System.out.println(s1.getDetails());
+                countStu++;
+
+
+            }
+            }catch(NumberFormatException ne){
+
+                    if (strArgs.length == 2){
+                        System.out.println("Name: " + strArgs[0]+ "\n" +
+                                "Course: " + strArgs[1]);
+                        countStu++;
+                       // System.out.println("Exception caught, incorrect / incomplete information");
+                    }
+
+                    else {
+
+                        throw new IllegalObjectCreationException();
+                    }
+
+            }
+
+
+        }
+        countObj = countPer + countStu;
+        System.out.println(countObj + " object/s created," + countPer + " Person object/s created," + countStu + " Student object/s created.");
+
+    }
+}
